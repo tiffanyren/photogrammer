@@ -19,7 +19,7 @@
   ================================================== -->
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="css/browse.css" rel="stylesheet">
 
     <!-- Favicons
 	================================================== -->
@@ -41,5 +41,46 @@
         </div>
     </section>
 
+
+    <!-- Primary Page Layout
+	================================================== -->
+    <!-- all content goes in here -->
+
+    <section class="container_prod">
+        <div class="block">
+            <a href="listing1.php"><img src="img/antonina-bukowska-9Pq42qFP9vY-unsplash.jpg" alt="cherry blossoms 1">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/antonina-bukowska-9Pq42qFP9vY-unsplash.jpg" alt="cherry blossoms 1">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/antonina-bukowska-9Pq42qFP9vY-unsplash.jpg" alt="cherry blossoms 1">
+        </div>
+        <div class="block">
+            <a href="listing1.php"><img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
+        </div>
+    </section>
+
+    <section class="footer">
+        <a class="button_nav button_trans" href="browse.php">Sort A-Z</a>
+        <a class="button_nav button_trans" href="browse.php">Sort A-Z</a>
+    </section>
+
 </body>
+
 </html>
