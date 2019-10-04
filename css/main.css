@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i');
 @import url("https://use.typekit.net/qec4opu.css");
 
-* {
+  * {
     box-sizing: border-box;
   }
 
@@ -40,7 +40,7 @@
   h1 {
     margin-top: 0;
     font-size: 2.5rem;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
   }
   
@@ -55,7 +55,7 @@
     font-weight: bold;
     font-size: 1.3rem;
     margin-top: 1rem;
-    font-weight: 600;
+    font-weight: 300;
     text-align: center;
   }
   
@@ -64,7 +64,7 @@
     font-size: 1rem;
     margin-top: 1rem;
     margin-bottom: 0.25rem;
-    font-weight: 400;
+    font-weight: 300;
     font-style: italic;
     text-align: center;
   }
@@ -73,15 +73,18 @@
     padding: 0.5em 0em;
     font-weight: normal;
     text-align: center;
+    font-weight: 400;
   }
   
   ol {
     padding: 0em 1em;
+    font-weight: 400;
   }
   
   li {
     padding: 0.5em 0em;
     font-weight: normal;
+    font-weight: 400;
   }
   
   label {
@@ -94,7 +97,7 @@
 NAVIGATION BAR -------------------
 */
 
-nav {
+  nav {
     font-size: 1em;
     display: flex;
     margin-bottom: 0.5em;
@@ -102,18 +105,21 @@ nav {
     overflow: hidden;
   }
 
-.nav_right nav {
+  .nav_right nav {
     justify-content: space-around;
   }
   
   nav a{
     display: inline-block;
     padding: 0rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5em;
     text-decoration: none;
     transition: all 0.5s ease;
     color: #292830;
     background-color: transparent;
     border: 0.04em solid transparent;
+    font-weight: 400;
   }
   
   nav a:active, nav a:hover, nav a:focus {
@@ -125,7 +131,7 @@ nav {
 HEADER BAR -------------------
 */
 
-.container_nav {
+  .container_nav {
     position: sticky;
     position:-webkit-sticky;
     width: 100%;
@@ -159,17 +165,6 @@ HEADER BAR -------------------
     color: #292830; 
   }
 
-  /* p a {
-    color: white;
-    text-decoration: underline;
-  }
-
-  p a:hover, p a:focus, p a:active {
-    color: lightgrey;
-  } */
-
-
-
   #site-title {
     display: inline-block;
     padding: 0rem;
@@ -181,24 +176,23 @@ HEADER BAR -------------------
     border: 0.08em solid transparent;  
   
   }
-/*   
-a h1 {
-    text-decoration: none;
-    display: inline-block;
-    color: #292830; 
-  } */
   
+  @media(min-width: 30em) and (max-width: 50em){
+    .nav_left {
+      flex-basis: 60%;
+    }
+    .nav_right {
+      flex-basis: 40%;
+    }
+  }
+
+
   @media(max-width: 30em){
-    .nav_left, .nav_right{
-      display:none;
+    .nav_left {
+      flex-basis:100%;
     }
-    .nav_center{
-      text-align: center;
-      flex-grow: 1;
-    }
-  
-    [data-menu-component] {
-      display: flex;
+    .nav_right {
+      flex-basis: 100%;
     }
   }
   
