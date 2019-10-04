@@ -36,7 +36,7 @@
         <div class="nav_right">
             <nav>
                 <a href="browse.php">Browse</a>
-                <a href="login.php">My Account</a>
+                <a href="account.php">My Account</a>
             </nav>
         </div>
     </section>
@@ -77,9 +77,18 @@
     </section>
 
     <section class="footer">
-        <a class="button_nav button_trans" href="browse.php">Sort A-Z</a>
+
+        <div class="dropup">
+            <a class="button_nav button_trans">Location</a>
+            <div class="dropup-content">
+                <a href="#">Vancouver</a>
+                <a href="#">Toronto</a>
+            </div>
+        </div>
         <a class="button_nav button_trans" href="browse.php">Sort A-Z</a>
     </section>
+
+
 
 </body>
 

@@ -36,7 +36,7 @@
         <div class="nav_right">
             <nav>
                 <a href="browse.php">Browse</a>
-                <a href="login.php">My Account</a>
+                <a href="account.php">My Account</a>
             </nav>
         </div>
     </section>
