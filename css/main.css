@@ -176,6 +176,8 @@ HEADER BAR -------------------
     border: 0.08em solid transparent;  
   
   }
+
+  .error {color: #FF0000;}
   
   @media(min-width: 30em) and (max-width: 50em){
     .nav_left {
