@@ -3,43 +3,33 @@
 
 <head>
 
-    <!-- Basic Page Needs
-  ================================================== -->
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>The Instagrammer</title>
-
-    <!-- Mobile Specific Metas
-  ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+<?php include("basicheader.php")?>
+    
     <!-- CSS
   ================================================== -->
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
     <link href="css/browse.css" rel="stylesheet">
 
-    <!-- Favicons
-	================================================== -->
-    <link rel="shortcut icon" href="">
 
 </head>
 
+<?php 
+
+require("db.php");
+
+$columnDisplay = array('location', 'city', 'link', 'image');
+
+$query = "SELECT * FROM `data`";
+$result = mysqli_query($con, $query);
+  
+  // Test if there was a query error
+  if (!$result) {
+    die("Database query failed.");
+  }
+?>
+
 <body>
 
-    <section class="container_nav">
-        <div class="nav_left">
-            <a href="index.php" id="site-title">The Photogrammer</a>
-        </div>
-        <div class="nav_right">
-            <nav>
-                <a href="browse.php">Browse</a>
-                <a href="account.php">My Account</a>
-            </nav>
-        </div>
-    </section>
+<?php include("headerbar.php")?>
 
 
     <!-- Primary Page Layout
@@ -47,45 +37,33 @@
     <!-- all content goes in here -->
 
     <section class="container_prod">
-        <div class="block">
-            <a href="listing1.php"><img src="img/antonina-bukowska-9Pq42qFP9vY-unsplash.jpg" alt="cherry blossoms 1">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/antonina-bukowska-9Pq42qFP9vY-unsplash.jpg" alt="cherry blossoms 1">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/antonina-bukowska-9Pq42qFP9vY-unsplash.jpg" alt="cherry blossoms 1">
-        </div>
-        <div class="block">
-            <a href="listing1.php"><img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
-        </div>
+    <?php 
+    while ($row = mysqli_fetch_assoc($result)) {			   
+        echo '<div class="block">';
+           echo '<h3>'.$row["$columnDisplay[0]"].'</h3>'.
+           '<a href="'.$row["$columnDisplay[2]"].'">'.
+           '<img src='.$row["$columnDisplay[3]"].'></a></div>';
+       }
+    ?>
     </section>
 
     <section class="footer">
+    <a class="button_nav button_trans" href="browse.php">Sort A-Z</a>
+    <div class="dropup">
+            <a class="button_nav button_trans">Scenery</a>
+            <div class="dropup-content">
+                <a href="#">City</a>
+                <a href="#">Nature</a>
+            </div>
+        </div>
 
         <div class="dropup">
             <a class="button_nav button_trans">Location</a>
             <div class="dropup-content">
-                <a href="#">Vancouver</a>
-                <a href="#">Toronto</a>
+                <a href="#">Vancouver, BC</a>
+                <a href="#">Toronto, ON</a>
             </div>
         </div>
-        <a class="button_nav button_trans" href="browse.php">Sort A-Z</a>
     </section>
 
 

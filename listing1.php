@@ -3,27 +3,11 @@
 
 <head>
 
-    <!-- Basic Page Needs
-  ================================================== -->
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>The Instagrammer</title>
-
-    <!-- Mobile Specific Metas
-  ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<?php include("basicheader.php")?>
 
     <!-- CSS
   ================================================== -->
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
     <link href="css/listing.css" rel="stylesheet">
-
-    <!-- Favicons
-	================================================== -->
-    <link rel="shortcut icon" href="">
 
     <!-- JS
 	================================================== -->
@@ -31,19 +15,16 @@
 
 </head>
 
+<?php
+require("db.php"); //connection to db code
+
+
+
+?>
+
 <body>
 
-    <section class="container_nav">
-        <div class="nav_left">
-            <a href="index.php" id="site-title">The Photogrammer</a>
-        </div>
-        <div class="nav_right">
-            <nav>
-                <a href="browse.php">Browse</a>
-                <a href="account.php">My Account</a>
-            </nav>
-        </div>
-    </section>
+<?php include("headerbar.php"); ?>
 
     <!-- Primary Page Layout
 	================================================== -->
@@ -52,7 +33,6 @@
     <section class="container_listing">
         <div class="container_imgs">
             <img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
-            <img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
         </div>
         <div class="container_desc">
             <div class="sticky">
@@ -69,9 +49,7 @@
                     <h3>▸ More Information</h3>
                 </a>
                 <div id="moreInfo">
-                    <li>Location</li>
-                    <li>Large Pedestrian Walking Area</li>
-                    <li>Biking Lane</li>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.23434921963!2d-123.11694808493088!3d49.27195647933017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673d84fa50ce5%3A0x8c08cde62bb386e1!2sCambie%20Bridge!5e0!3m2!1sen!2sca!4v1573248078400!5m2!1sen!2sca" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                 </div>
             </div>
         </div>

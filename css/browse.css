@@ -5,7 +5,6 @@
 }
 
 .container_prod .block {
-    padding: 0;
     flex-basis: 33.33333%;
 }
 
@@ -49,7 +48,16 @@
     background-color: #292830;
 }
 
-/* test */
+h2 {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Drop-up filter footer */
   
   .dropup {
     position: sticky;
