@@ -20,7 +20,7 @@
     <!-- all content goes in here -->
 
     <section class="container_home">
-        <img src="img/lonsdalequay.jpg" alt="vancouver">
+        <img src="img/vancouver.jpg" alt="vancouver"> <!-- CHANGE LATER --> 
         <div class="img_text">
             <h1>DISCOVER</h1>
             <p>the places most coveted by Instagram photographers</p>

@@ -12,11 +12,23 @@
 
 </head>
 
+<?php
+//initialize variables for buttons
+$sortalpha = "";
+$vancouver = "";
+$toronto = "";
+$nature = "";
+$city = "";
+$clear = "";
+
+?>
+
+
 <?php 
 
 require("db.php");
 
-$columnDisplay = array('location', 'city', 'link', 'image');
+$columnDisplay = array('location', 'id', 'image', 'city', 'scenery');
 
 $query = "SELECT * FROM `data`";
 $result = mysqli_query($con, $query);
@@ -40,9 +52,11 @@ $result = mysqli_query($con, $query);
     <?php 
     while ($row = mysqli_fetch_assoc($result)) {			   
         echo '<div class="block">';
-           echo '<h3>'.$row["$columnDisplay[0]"].'</h3>'.
-           '<a href="'.$row["$columnDisplay[2]"].'">'.
-           '<img src='.$row["$columnDisplay[3]"].'></a></div>';
+           echo '<a href="listing'.$row["$columnDisplay[1]"].'.php">'.
+           '<img src='.$row["$columnDisplay[2]"].'></a>'.
+           '<h3>'.$row["$columnDisplay[0]"].'</h3>'.
+           '<h4>'.$row["$columnDisplay[3]"].'</h4>';
+        echo '</div>';
        }
     ?>
     </section>
@@ -52,8 +66,8 @@ $result = mysqli_query($con, $query);
     <div class="dropup">
             <a class="button_nav button_trans">Scenery</a>
             <div class="dropup-content">
-                <a href="#">City</a>
-                <a href="#">Nature</a>
+                <button type="submit" value="city">City</button>
+                <button type="submit" value="nature">Nature</button>
             </div>
         </div>
 

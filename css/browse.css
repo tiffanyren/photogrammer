@@ -6,10 +6,11 @@
 
 .container_prod .block {
     flex-basis: 33.33333%;
+    padding: 0.5em;
 }
 
 .block:active, .block:hover, .block:focus {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .footer {
@@ -48,13 +49,16 @@
     background-color: #292830;
 }
 
-h2 {
-  font-weight: bold;
-  font-size: 1.3rem;
-  margin: 0;
-  font-weight: 300;
-  text-align: center;
-  text-transform: uppercase;
+h3 {
+margin-top: 0.3em;
+margin-bottom: 0em;
+padding-bottom: 0;
+}
+
+h4 {
+  margin-top: 0.5em;
+  margin-bottom: 0.7em;
+  padding: 0;
 }
 
 /* Drop-up filter footer */
@@ -73,15 +77,25 @@ h2 {
     z-index: 1;
     border: 0.07em solid #292830;
   }
+
+  button {
+    display: block;
+    border: none;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+    color: #292830; 
+  }
   
-  .dropup-content a {
+  .dropup-content button {
     color: #292830;
     background-color: white;
     text-decoration: none;
     display: block;
   }
   
-  .dropup-content a:hover {background-color: #ccc}
+  .dropup-content button:hover {background-color: #ccc}
   
   .dropup:hover .dropup-content {
     display: block;
