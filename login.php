@@ -3,7 +3,7 @@
 
 <head>
 
-<?php include("basicheader.php")?>
+    <?php include("basicheader.php")?>
 
     <!-- CSS
   ================================================== -->
@@ -13,15 +13,15 @@
 
 <body>
 
-<?php include("headerbar.php")?>
+    <?php include("headerbar.php")?>
 
     <!-- Primary Page Layout
 	================================================== -->
     <!-- all content goes in here -->
 
-    <?php
- require('db.php'); //connection to db code
- include("auth_sessionActiveCheck.php");
+<?php
+  require('db.php'); //connection to db code
+  include("auth_sessionActiveCheck.php");
 
  // Note: arrive at this page only if there is no active session
  // If form submitted, insert values into the database.
@@ -54,19 +54,19 @@
 }else{
 ?>
 
-<section class="container_form">
-    <h1>LOGIN</h1>
-    <form method="post" action="" name="login">
-    Username: <input type="text" name="username" placeholder="Username" required />
-    <br><br>
-        Password: <input type="password" name="password" placeholder="Password" required />
-        <br><br>
-        <input class="sub_res button_nav button_trans" type="submit" name="submit" value="Login">
-        <br><br>
-      </form>
-      Not registered yet? <a class="sub_res button_nav button_trans" href='register.php'>Register Here</a>
-      </section>
-      <?php } ?>
+    <section class="container_form">
+        <h1>LOGIN</h1>
+        <form method="post" action="" name="login">
+            Username: <input type="text" name="username" placeholder="Username" required />
+            <br><br>
+            Password: <input type="password" name="password" placeholder="Password" required />
+            <br><br>
+            <input class="sub_res button_nav button_trans" type="submit" name="submit" value="Login">
+            <br><br>
+        </form>
+        Not registered yet? <a class="sub_res button_nav button_trans" href='register.php'>Register Here</a>
+    </section>
+    <?php } ?>
 
 
 </body>

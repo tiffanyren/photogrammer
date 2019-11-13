@@ -67,7 +67,7 @@ h4 {
     position: sticky;
     display: inline-block;
   }
-  
+
   .dropup-content {
     display: none;
     position: sticky;
@@ -117,3 +117,19 @@ h4 {
   .dropup:hover .button_nav {
     bottom: 0;
   }
+
+.pagination{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  border-bottom: 0.07em solid #292830;
+  align-items: center;
+  width:100%;
+  justify-content: center;
+}
+.pagination a {
+  display: inline-block;
+  margin: 0;
+  border:none;
+}
