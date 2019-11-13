@@ -31,11 +31,11 @@ include("auth_sessionNotActiveCheck.php");
     <!-- all content goes in here -->
 
     <h2>Welcome <?php echo $_SESSION['username']; ?>!</h2>
+    <p><a class="sub_res button_nav button_trans" href="logout.php">Logout</a></p>
 
     <?php
     $idquery = "SELECT `id` FROM `users` WHERE username= '".$_SESSION['username']."'";
     $idresult = mysqli_query($con,$idquery);
-    echo $idquery;
     while ($row = mysqli_fetch_assoc($idresult)){
         $id = $row["id"];
     }
@@ -70,7 +70,6 @@ include("auth_sessionNotActiveCheck.php");
     } else {
      //enter into users database
     $query = "UPDATE `users` SET `username` = '$username' WHERE `users`.`id`= '$id'";
-    echo $query;
     $result = mysqli_query($con,$query);
     $_SESSION['username'] = $username;
  
@@ -114,7 +113,6 @@ include("auth_sessionNotActiveCheck.php");
             <input class="sub_res button_nav button_trans" type="submit" name="submit" value="Change">
         </form>
     </section>
-    <a class="sub_res button_nav button_trans" href="logout.php">Logout</a>
     <?php } ?>
  
 
