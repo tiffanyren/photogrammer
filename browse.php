@@ -15,7 +15,7 @@
 <?php
 require("db.php");
 
-//initialize variables for buttons
+//initialize variables
 $sort = "";
 $vancouver = "";
 $toronto = "";
@@ -25,45 +25,20 @@ $clear = "";
 $filternames = array('sort', 'vancouver', 'toronto', 'nature', 'citylife', 'clear');
 $columnDisplay = array('location', 'id', 'image', 'city', 'scenery');
 
-// session_start();
-
-// if (!isset($_SESSION['filters'])) {
-//   if(array_key_exists('submit', $_POST)) //the name of the submit button of the filters form
-//   {
-//      foreach($filternames as $filter)
-//      {
-//          $session_filters = $filter.":".$_POST[$filter].";";
-//      }
-//      $_SESSION['filters'] = $session_filters;
-//   }
-// } else {
-
-//   $user_filters = explode(";" , $_SESSION['filters']);  
-//   /*
-//   $user_filters: Array (
-//      [0] => location:somevalue
-//      [1] => age:somevalue
-//      [2] => language:somevalue
-//   )
-//   */
-// }
-
-
+//set variables
 if(isset($_POST['submit'])){
     $sort = isset($_POST['sort']) ? $_POST['sort'] : '';
     $citylife = isset($_POST['citylife']) ? $_POST['citylife'] : '';
     $nature = isset($_POST['nature']) ? $_POST['nature'] : '';
     $vancouver = isset($_POST['vancouver']) ? $_POST['vancouver'] : '';
     $toronto = isset($_POST['toronto']) ? $_POST['toronto'] : '';
-    // $_SESSION['filters'] = $session_filters;
 }  
 else {
     echo "";
 
 }
-
 //pagination
-
+// reference https://www.myprogrammingtutorials.com/create-pagination-with-php-and-mysql.html
 if (isset($_GET['pageno'])) {
     $pageno = $_GET['pageno'];
 } else {
@@ -115,7 +90,7 @@ if (!(empty($sort))) {
 $query .= " LIMIT $offset, $no_of_records_per_page";
 $result = mysqli_query($con, $query);
 
-echo $query;
+// echo $query;
   
   // Test if there was a query error
   if (!$result) {
@@ -165,6 +140,8 @@ echo $query;
        <!-- filter/sort footer -->
     <section class="footer">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+       
+        <!-- sort a-z -->
             <div class="dropup">
                 <a class="button_nav button_trans">Sort</a>
                 <div class="dropup-content">
@@ -173,6 +150,7 @@ echo $query;
                 </div>
             </div>
 
+            <!-- scenery -->
             <div class="dropup">
                 <a class="button_nav button_trans">Scenery</a>
                 <div class="dropup-content">
@@ -182,6 +160,8 @@ echo $query;
                         <?php if(isset($_POST['nature'])) echo "checked='checked'"; ?>>Nature
                 </div>
             </div>
+
+            <!-- location -->
             <div class="dropup">
                 <a class="button_nav button_trans">Location</a>
                 <div class="dropup-content">
@@ -191,6 +171,8 @@ echo $query;
                         <?php if(isset($_POST['toronto'])) echo "checked='checked'"; ?>>Toronto, ON
                 </div>
             </div>
+            
+            <!-- submit -->
             <input type="submit" name="submit" value="submit" class="button_nav button_trans">
         </form>
     </section>
@@ -207,4 +189,13 @@ echo $query;
 <?php
   // 5. Close database connection  
   mysqli_close($con);
+
+
+// references to keep in mind for later
+// https://stackoverflow.com/questions/14424162/php-how-do-question-marks-after-address-work
+// https://stackoverflow.com/questions/9466887/keeping-searchform-filters-in-session 
 ?>
+
+
+
+
