@@ -19,7 +19,7 @@
 	================================================== -->
     <!-- all content goes in here -->
 
-<?php
+    <?php
   require('db.php'); //connection to db code
   include("auth_sessionActiveCheck.php");
 
@@ -47,7 +47,7 @@
 
    }else{
      echo "<h3>Username/password is incorrect.</h3>
-     <br/>Click here to <a href='login.php'>Login</a>";
+     <p><br/>Click here to <a href='login.php'>Login</a></p>";
      echo "<p>Not registered yet? <a href='register.php'>Register Here</a></p>";
    }
 

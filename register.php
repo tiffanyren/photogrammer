@@ -67,8 +67,8 @@ if (($urow>=1) || ($erow>=1) || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
    <section class="container_form">
    <h1>REGISTRATION</h1>
    <form name="registration" action="" method="post">
-    Username: <input type="text" name="username" placeholder="Username" required />
-    Email: <input type="text" name="email" placeholder="Email" required />
+    Username: <input type="text" name="username" placeholder="Username" required /><br><br>
+    Email: <input type="text" name="email" placeholder="Email" required /><br><br>
     Password:  <input type="password" name="password" placeholder="Password" required /><br><br>
       <input class="sub_res button_nav button_trans" type="submit" name="submit" value="Register">
     </form>
@@ -84,7 +84,7 @@ if (($urow>=1) || ($erow>=1) || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
     //successfully registered page
    if($result){
      echo "<h3>You are registered successfully.</h3>
-     <br/>Click here to <a href='login.php'>Login</a>";
+     <p><br/>Click here to <a href='login.php'>Login</a></p>";
    }
  }
 
@@ -93,8 +93,8 @@ if (($urow>=1) || ($erow>=1) || (!filter_var($email, FILTER_VALIDATE_EMAIL))) {
 <section class="container_form">
     <h1>REGISTRATION</h1>
       <form name="registration" action="" method="post">
-      Username: <input type="text" name="username" placeholder="Username" required />
-      Email: <input type="text" name="email" placeholder="Email" required />
+      Username: <input type="text" name="username" placeholder="Username" required /><br><br>
+      Email: <input type="text" name="email" placeholder="Email" required /><br><br>
       Password:  <input type="password" name="password" placeholder="Password" required /><br><br>
         <input class="sub_res button_nav button_trans" type="submit" name="submit" value="Register">
       </form>
