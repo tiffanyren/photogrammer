@@ -69,7 +69,7 @@ if (isset($_GET['pageno'])) {
 } else {
     $pageno = 1;
 }
-$no_of_records_per_page = 3;
+$no_of_records_per_page = 6;
 $offset = ($pageno-1) * $no_of_records_per_page;
 
 
@@ -134,7 +134,7 @@ echo $query;
     <!-- all content goes in here -->
 
     <section class="container_prod">
-        
+
     <!-- get resulting listings -->
         <?php 
     while ($row = mysqli_fetch_assoc($result)) {			   
