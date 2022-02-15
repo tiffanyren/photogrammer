@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2019 at 08:23 AM
+-- Generation Time: Nov 29, 2019 at 05:17 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -30,7 +30,6 @@ USE `tiffany_ren`;
 -- Table structure for table `data`
 --
 -- Creation: Nov 12, 2019 at 09:10 AM
--- Last update: Nov 13, 2019 at 05:47 AM
 --
 
 DROP TABLE IF EXISTS `data`;
@@ -79,7 +78,7 @@ INSERT INTO `data` (`id`, `location`, `city`, `scenery`, `image`, `description`,
 -- Table structure for table `users`
 --
 -- Creation: Nov 13, 2019 at 03:19 AM
--- Last update: Nov 13, 2019 at 05:56 AM
+-- Last update: Nov 29, 2019 at 04:15 PM
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -101,22 +100,22 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `city`) VALUES
-(12, 'a', 'a@b.ca', '92eb5ffee6ae2fec3ad71c777531578f', ''),
-(13, 'b', 'a@b.ca', '12eccbdd9b32918131341f38907cbbb5', ''),
-(14, 'd', 'a@b.ca', 'e3e84538a1b02b1cc11bf71fe3169958', ''),
-(15, 'asd', 'asdf@gwrfw.com', 'facad3d26157a1624543551ba3812040', ''),
-(16, 'c', 'c@c.com', '4a8a08f09d37b73795649038408b5f33', ''),
-(17, 'tiffany', 'tiffany@sfu.ca', 'tiffany', ''),
-(18, 'karen', 'karen@sfu.ca', 'karen', ''),
-(19, 'aaron', 'aaron@hotmail.com', 'aaron', ''),
-(20, 'deanna', 'deannaz@gmail.com', 'deanna', ''),
-(21, 'tubui', 'tubui@gmail.com', 'tu', ''),
-(22, 'dakota', 'dakotaj@sfu.ca', 'dakotaj', ''),
-(23, 'lillian', 'lillianchen@gmail.com', 'lillian', ''),
-(24, 'andychen', 'andy@chen.com', 'andy', ''),
-(25, 'andreww', 'aww7@gmail.com', 'aww7', ''),
-(26, 'leanney', 'leanne@ua.com', 'anne', ''),
-(27, 'billy', 'bill308@hotmail.com', 'bill', '');
+(12, 'a', 'a@b.ca', '92eb5ffee6ae2fec3ad71c777531578f', 'vancouver'),
+(13, 'b', 'a@b.ca', '12eccbdd9b32918131341f38907cbbb5', 'toronto'),
+(14, 'd', 'a@b.ca', 'e3e84538a1b02b1cc11bf71fe3169958', 'toronto'),
+(15, 'asd', 'asdf@gwrfw.com', 'facad3d26157a1624543551ba3812040', 'toronto'),
+(16, 'c', 'c@c.com', '4a8a08f09d37b73795649038408b5f33', 'vancouver'),
+(17, 'tiffany', 'tiffany@sfu.ca', 'tiffany', 'vancouver'),
+(18, 'karen', 'karen@sfu.ca', 'karen', 'vancouver'),
+(19, 'aaron', 'aaron@hotmail.com', 'aaron', 'vancouver'),
+(20, 'deanna', 'deannaz@gmail.com', 'deanna', 'vancouver'),
+(21, 'tubui', 'tubui@gmail.com', 'tu', 'vancouver'),
+(22, 'dakota', 'dakotaj@sfu.ca', 'dakotaj', 'toronto'),
+(23, 'lillian', 'lillianchen@gmail.com', 'lillian', 'toronto'),
+(24, 'andychen', 'andy@chen.com', 'andy', 'toronto'),
+(25, 'andreww', 'aww7@gmail.com', 'aww7', 'toronto'),
+(26, 'leanney', 'leanne@ua.com', 'anne', 'toronto'),
+(27, 'billy', 'bill308@hotmail.com', 'bill', 'toronto');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

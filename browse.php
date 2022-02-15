@@ -9,133 +9,51 @@
   ================================================== -->
     <link href="css/browse.css" rel="stylesheet">
 
+<style>
+.link {padding: 0.5em 1em; background: transparent;border:#292830 0.07em solid;border-left:0;cursor:pointer;color:#292830}
+.disabled {cursor:not-allowed;color: grey;}
+.current {background: #292830; color: white;}
+.first{border-left:#292830 0.07em solid;}
+#pagination{margin-top: 2em; padding-top: 3em;border-top: none;}
+.dot {padding: 1em 1.5em;background: transparent;border-right: #292830 0.07em solid;}
+.page-content {padding-bottom: 2em;margin: 0 auto;}
+</style>
 
 </head>
 
-<?php
-require("db.php");
-
-//initialize variables
-$sort = "";
-$vancouver = "";
-$toronto = "";
-$nature = "";
-$citylife = "";
-$clear = "";
-$filternames = array('sort', 'vancouver', 'toronto', 'nature', 'citylife', 'clear');
-$columnDisplay = array('location', 'id', 'image', 'city', 'scenery');
-
-//set variables
-if(isset($_POST['submit'])){
-    $sort = isset($_POST['sort']) ? $_POST['sort'] : '';
-    $citylife = isset($_POST['citylife']) ? $_POST['citylife'] : '';
-    $nature = isset($_POST['nature']) ? $_POST['nature'] : '';
-    $vancouver = isset($_POST['vancouver']) ? $_POST['vancouver'] : '';
-    $toronto = isset($_POST['toronto']) ? $_POST['toronto'] : '';
-}  
-else {
-    echo "";
-
+<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+<script>
+function getresult(url) {
+	$.ajax({
+		url: url,
+		type: "GET",
+        data:  {rowcount:$("#rowcount").val()},
+		success: function(data){
+		$("#pagination-result").html(data);
+		},
+		error: function() 
+		{} 	        
+   });
 }
-//pagination
-// reference https://www.myprogrammingtutorials.com/create-pagination-with-php-and-mysql.html
-if (isset($_GET['pageno'])) {
-    $pageno = $_GET['pageno'];
-} else {
-    $pageno = 1;
+function changePagination(option) {
+	if(option!= "") {
+		getresult("getresult.php");
+	}
 }
-$no_of_records_per_page = 6;
-$offset = ($pageno-1) * $no_of_records_per_page;
+</script>
+</HEAD>
+<BODY>
+<?php include("headerbar.php")?>
+<div class="page-content">
+	
+	<div id="pagination-result">
+	<input type="hidden" name="rowcount" id="rowcount" />
+	</div>
+</div>
 
-
-$total_pages_sql = "SELECT COUNT(*) FROM `data`";
-$resultcount = mysqli_query($con, $total_pages_sql);
-$total_pages = ceil(mysqli_fetch_assoc($resultcount)["COUNT(*)"] / $no_of_records_per_page);
-
-$query = "SELECT * FROM `data`";
-
-//where
-if (((!(empty($citylife))) || (!(empty($nature)))) || ((!(empty($vancouver))) || (!(empty($toronto))))) {
-    $query .= " WHERE";
-}
-
-//filter scenery
-if (!(empty($citylife)) && (empty($nature))) {
-    $query .= " scenery = 'citylife'";
-} else if (!(empty($nature)) && (empty($citylife))) {
-    $query .= " scenery = 'nature'";
-} else if (!(empty($citylife)) && !(empty($nature))){
-    $query .= " scenery = 'citylife' OR scenery = 'nature'";
-}
-
-//connect filters
-if (((!(empty($citylife))) || (!(empty($nature)))) && ((!(empty($vancouver))) || (!(empty($toronto))))) {
-    $query .= " AND";
-}
-
-//filter city
-if (!(empty($vancouver)) && empty($toronto)) {
-    $query .= " city = 'Vancouver, BC'";
-} else if (!(empty($toronto)) && empty($vancouver)) {
-    $query .= " city = 'Toronto, ON'";
-} else if (!(empty($vancouver)) && !(empty($toronto))) {
-    $query .= " city = 'Vancouver, BC' OR city = 'Toronto, ON'";
-}
-
-//sort A-Z
-if (!(empty($sort))) {
-    $query .= "ORDER BY `location` ASC";
-} 
-
-$query .= " LIMIT $offset, $no_of_records_per_page";
-$result = mysqli_query($con, $query);
-
-// echo $query;
-  
-  // Test if there was a query error
-  if (!$result) {
-    die("Database query failed.");
-  }
-
-?>
-
-<body>
-
-    <?php include("headerbar.php")?>
-
-
-    <!-- Primary Page Layout
-	================================================== -->
-    <!-- all content goes in here -->
-
-    <section class="container_prod">
-
-    <!-- get resulting listings -->
-        <?php 
-    while ($row = mysqli_fetch_assoc($result)) {			   
-        echo '<div class="block">';
-           echo '<a href="listing'.$row["$columnDisplay[1]"].'.php">'.
-           '<img src='.$row["$columnDisplay[2]"].'></a>'.
-           '<h3>'.$row["$columnDisplay[0]"].'</h3>'.
-           '<h4>'.$row["$columnDisplay[3]"].'</h4>';
-        echo '</div>';
-       }
-    ?>
-
-    <!-- pages -->
-        <div class="pagination">
-            <div><a class="button_nav button_trans" href="?pageno=1">First</a></div>
-            <div class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
-                <a class="button_nav button_trans"
-                    href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
-            </div>
-            <div class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
-                <a class="button_nav button_trans"
-                    href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
-            </div>
-            <div><a class="button_nav button_trans" href="?pageno=<?php echo $total_pages; ?>">Last</a></div>
-        </div>
-    </section>
+<script>
+getresult("getresult.php");
+</script>
 
        <!-- filter/sort footer -->
     <section class="footer">
@@ -145,7 +63,7 @@ $result = mysqli_query($con, $query);
             <div class="dropup">
                 <a class="button_nav button_trans">Sort</a>
                 <div class="dropup-content">
-                    <input type="checkbox" name="sort" value="sort"
+                    <input type="checkbox" name="sort" value="sort" id="sort"
                         <?php if(isset($_POST['sort'])) echo "checked='checked'"; ?>>A-Z
                 </div>
             </div>
@@ -165,7 +83,7 @@ $result = mysqli_query($con, $query);
             <div class="dropup">
                 <a class="button_nav button_trans">Location</a>
                 <div class="dropup-content">
-                    <input type="checkbox" name="vancouver" value="Vancouver, BC"
+                    <input type="checkbox" name="vancouver" id="vancouver" value="Vancouver, BC"
                         <?php if(isset($_POST['vancouver'])) echo "checked='checked'"; ?>>Vancouver, BC<br>
                     <input type="checkbox" name="toronto" value="Toronto, ON"
                         <?php if(isset($_POST['toronto'])) echo "checked='checked'"; ?>>Toronto, ON
@@ -173,28 +91,28 @@ $result = mysqli_query($con, $query);
             </div>
             
             <!-- submit -->
-            <input type="submit" name="submit" value="submit" class="button_nav button_trans">
+            <input type="submit" name="submit" value="submit" id="submit" class="button_nav button_trans">
         </form>
     </section>
+    <script>
 
-    <?php
-      // 4. Release returned data	
-      mysqli_free_result($result);		
-        ?>
+// function processForm() { 
+//     $.ajax( {
+//     type: 'POST',
+//     url: 'getresult.php',
+//     data: { sort : $('input:checkbox:checked').val()},
+
+//     success: function(data) {
+//         $('#message').html(data);
+//     }
+// } );
+// }
+</script>
 
 </body>
 
 </html>
 
-<?php
-  // 5. Close database connection  
-  mysqli_close($con);
-
-
-// references to keep in mind for later
-// https://stackoverflow.com/questions/14424162/php-how-do-question-marks-after-address-work
-// https://stackoverflow.com/questions/9466887/keeping-searchform-filters-in-session 
-?>
 
 
 

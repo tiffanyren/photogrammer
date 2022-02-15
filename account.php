@@ -88,12 +88,22 @@ include("auth_sessionNotActiveCheck.php");
 
          //enter into users database
          $query = "UPDATE `users` SET `password` = '".md5($password)."' WHERE `users`.`id`= '$id'";
-         echo $query;
+         //echo $query;
          $result = mysqli_query($con,$query);
       
              //successfully registered page
              if($result){
                  echo "<h3>You have changed your profile successfully.</h3>";
+             }
+} else if (isset($_POST['city'])) {
+    $city = ($_POST['city']);
+    $query = "UPDATE `users` SET `city` = '$city' WHERE `users`.`id`='$id'";
+    //echo $query;
+         $result = mysqli_query($con,$query);
+      
+             //successfully registered page
+             if($result){
+                 echo "<h3>You have changed your city successfully.</h3>";
              }
 }
   
@@ -113,7 +123,19 @@ include("auth_sessionNotActiveCheck.php");
             <input class="sub_res button_nav button_trans" type="submit" name="submit" value="Change">
         </form>
     </section>
-    <?php } ?>
+    <section class="container_form">
+        <h1>Set your city of choice:</h1>
+        <form name="setcity" action="" method="post">
+        <select name="city">
+            <option></option>
+    <option value="vancouver">Vancouver</option>
+    <option value="toronto">Toronto</option>
+  </select>
+  <br>
+  <input class="sub_res button_nav button_trans" type="submit" name="submit" value="Change">
+  </form>
+  </section>
+  <?php } ?>
  
 
 </body>

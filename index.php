@@ -10,6 +10,24 @@
 
 </head>
 
+<?php
+
+require("db.php");
+
+session_start();
+
+if(isset($_SESSION["username"])){
+    $query = "SELECT `city` FROM `users` WHERE username= '".$_SESSION['username']."'";
+    $result = mysqli_query($con, $query);
+      
+      // Test if there was a query error
+      if (!$result) {
+        die("Database query failed.");
+      }
+}
+
+?>
+
 <body>
 
 <?php include("headerbar.php")?>
@@ -20,7 +38,11 @@
     <!-- all content goes in here -->
 
     <section class="container_home">
-        <img src="img/vancouver.jpg" alt="vancouver"> <!-- CHANGE LATER --> 
+    <?php
+    if(isset($_SESSION["username"])){
+        $data = mysqli_fetch_assoc($result); ?>
+    <img src="img/<?php echo $data['city']?>.jpg"><?php } else { ?>
+    <img src="img/vancouver.jpg"><?php } ?>
         <div class="img_text">
             <h1>DISCOVER</h1>
             <p>the places most coveted by Instagram photographers</p>
@@ -38,7 +60,7 @@
             <a href="listing1.php"><img src="img/kyle-ryan-nIujk826wE0-unsplash.jpg" alt="cambie street bridge 1">
           </div>
         <div class="block">
-            <a href="listing1.php"><img src="img/nathan-shurr-lJhWhFnGHK8-unsplash.jpg" alt="cambie street bridge 2">
+            <a href="listing1.php"><img src="img/polsonpier.jpg" alt="cambie street bridge 2">
         </div>
 
     </section>

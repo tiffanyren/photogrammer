@@ -118,7 +118,7 @@ h4 {
     bottom: 0;
   }
 
-.pagination{
+/* .pagination{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -132,4 +132,4 @@ h4 {
   display: inline-block;
   margin: 0;
   border:none;
-}
+} */
